@@ -1,4 +1,8 @@
 
+
+var commands = require('./commands.js');
+var fs = require('fs');
+
 // Output a prompt
 process.stdout.write('prompt > ');
 
@@ -6,12 +10,10 @@ process.stdout.write('prompt > ');
 process.stdin.on('data', function (data) {
 	var cmd = data.toString().trim(); // remove the newline
 
-	process.stdout.write('You typed: ' + cmd);
-	process.stdout.write('\nprompt > ');
+	//process.stdout.write('You typed: ' + cmd);
 
-	if (cmd === 'pwd') {
-		process.stdout.write(process.cwd());
-	}
+	commands[cmd]();
+
+	
+
 });
-
-//console.log(process.cwd());
