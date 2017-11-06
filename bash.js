@@ -12,7 +12,10 @@ process.stdin.on('data', function (data) {
 
 	//process.stdout.write('You typed: ' + cmd);
 
-	commands[cmd]();
+	var arg = cmd.split(' ');
+	cmd = cmd.split(' ')[0];
+
+	commands[cmd](arg);
 
 	
 
